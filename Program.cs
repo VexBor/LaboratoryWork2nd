@@ -1,67 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
+using LaboratoryWork2nd;
+namespace LaboratoryWork2nd;
 
-public interface IRefuelable
+public static class Program
 {
-    void Refill();
-}
-
-public abstract class Vehicle
-{
-    public string Brand { get; set; }
-    public int Speed { get; set; }
-
-    protected Vehicle(string brand, int speed)
+    private static void Main()
     {
-        Brand = brand;
-        Speed = speed;
-    }
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-    public abstract void Move();
-}
-
-public class Car : Vehicle, IRefuelable
-{
-    public Car(string brand, int speed) : base(brand, speed) { }
-
-    public override void Move() => Console.WriteLine($"[Car] {Brand} їде по дорозі зі швидкістю {Speed} км/год.");
-    public void Refill() => Console.WriteLine($"[Car] {Brand} заправлено бензином.");
-}
-
-public class Bicycle : Vehicle
-{
-    public Bicycle(string brand, int speed) : base(brand, speed) { }
-
-    public override void Move() => Console.WriteLine($"[Bicycle] {Brand} рухається за допомогою педалей.");
-}
-
-public class Airplane : Vehicle, IRefuelable
-{
-    public Airplane(string brand, int speed) : base(brand, speed) { }
-
-    public override void Move() => Console.WriteLine($"[Airplane] {Brand} летить у небі на швидкості {Speed} км/год.");
-    public void Refill() => Console.WriteLine($"[Airplane] {Brand} заправлено авіаційним паливом.");
-}
-
-class Program
-{
-    static void Main()
-    {
-        List<Vehicle> vehicles = new List<Vehicle>
+        List<AnimalStruct.Animal> zoo = new List<AnimalStruct.Animal>
         {
-            new Car("Tesla", 120),
-            new Bicycle("Giant", 25),
-            new Airplane("Boeing", 850),
-            new Car("Porhce", 320)
+            new AnimalStruct.Dog("Рекс", 5),
+            new AnimalStruct.Cat("Мурчик", 3),
+            new AnimalStruct.Parrot("Кеша", 2)
         };
 
-        foreach (var v in vehicles)
+        Console.WriteLine("=== Демонстрація голосів тварин ===");
+        foreach (var animal in zoo)
         {
-            v.Move();
-            if (v is IRefuelable refuelable)
-            {
-                refuelable.Refill();
-            }
+            animal.DisplayInfo();
+            animal.MakeSound();
+            Console.WriteLine();
         }
     }
 }
