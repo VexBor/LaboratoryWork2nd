@@ -1,26 +1,23 @@
 using System;
-using LaboratoryWork2nd;
 namespace LaboratoryWork2nd;
 
 public static class Program
 {
-    private static void Main()
+    static void Main(string[] args)
     {
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        List<Artifact> inventory = new List<Artifact>();
+        
+        inventory.Add(new MagicScroll(101));
+        inventory.Add(new AncientSword(202));
 
-        List<AnimalStruct.Animal> zoo = new List<AnimalStruct.Animal>
-        {
-            new AnimalStruct.Dog("Рекс", 5),
-            new AnimalStruct.Cat("Мурчик", 3),
-            new AnimalStruct.Parrot("Кеша", 2)
-        };
+        Console.WriteLine("--- Аналіз інвентарю ---");
 
-        Console.WriteLine("=== Демонстрація голосів тварин ===");
-        foreach (var animal in zoo)
+        foreach (var item in inventory)
         {
-            animal.DisplayInfo();
-            animal.MakeSound();
-            Console.WriteLine();
+            item.Identify();
         }
+
+        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
+        Console.ReadKey();
     }
 }
