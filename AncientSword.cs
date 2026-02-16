@@ -6,7 +6,7 @@ public class AncientSword : Artifact
     {
     }
 
-    public new void Identify()
+    public override void Identify()
     {
         Console.WriteLine("[Ancient Sword] Це заіржавілий меч короля.");
     }

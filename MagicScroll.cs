@@ -6,7 +6,7 @@ public class MagicScroll : Artifact
     {
     }
 
-    public new void Identify()
+    public override void Identify()
     {
         Console.WriteLine("[Magic Scroll] Це сувій з закляттям вогню.");
     }

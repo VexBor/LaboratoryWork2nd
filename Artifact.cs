@@ -9,7 +9,7 @@ public class Artifact
         this.id = id;
     }
 
-    public void Identify()
+    public virtual void Identify()
     {
         Console.WriteLine($"[Artifact ID: {id}] Це невідомий стародавній предмет.");
     }
