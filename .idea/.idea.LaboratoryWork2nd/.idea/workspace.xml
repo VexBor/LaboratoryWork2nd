@@ -52,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "lab7Task1",
+    "git-widget-placeholder": "lab7Task3",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771250265788</updated>
       <workItem from="1771250267651" duration="3542000" />
-      <workItem from="1771341910950" duration="885000" />
+      <workItem from="1771341910950" duration="1163000" />
     </task>
     <servers />
   </component>

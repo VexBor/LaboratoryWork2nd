@@ -1,25 +1,27 @@
 using System;
 namespace LaboratoryWork2nd;
 
-public class BankTerminal
-{
-    public event <int> OnMoneyWithdraw;
-
-    public void Withdraw(int amount)
-    {
-        Console.WriteLine($"Знято: {amount}");
-        OnMoneyWithdraw?.Invoke(amount);
-    }
-}
-
 public static class Program
 {
     static void Main(string[] args)
     {
-        var terminal = new BankTerminal();
-        terminal.OnMoneyWithdraw += (a) => Console.WriteLine($"SMS: {a} грн");
+        Func<double, double> discountCalculator = null;
 
-        terminal.OnMoneyWithdraw = null;
-        terminal.OnMoneyWithdraw.Invoke(100500); 
+        discountCalculator += (price) => price * 0.95;  // -5%
+        discountCalculator += (price) => price * 0.90;  // -10%
+        discountCalculator += (price) => price - 100;   // -100 грн
+
+        double initialPrice = 1000;
+        double currentPrice = initialPrice;
+
+        var pipeline = discountCalculator.GetInvocationList();
+
+        foreach (var step in pipeline)
+        {
+            var func = (Func<double, double>)step;
+            currentPrice = func(currentPrice);
+        }
+
+        Console.WriteLine($"Фінальна ціна: {currentPrice}");
     }
 }
