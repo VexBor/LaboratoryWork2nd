@@ -3,7 +3,7 @@ namespace LaboratoryWork2nd;
 
 public class BankTerminal
 {
-    public Action<int> OnMoneyWithdraw;
+    public event <int> OnMoneyWithdraw;
 
     public void Withdraw(int amount)
     {
