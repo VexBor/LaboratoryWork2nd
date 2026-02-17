@@ -5,19 +5,17 @@ public static class Program
 {
     static void Main(string[] args)
     {
-        List<Artifact> inventory = new List<Artifact>();
-        
-        inventory.Add(new MagicScroll(101));
-        inventory.Add(new AncientSword(202));
+        List<Action> actions = new List<Action>();
 
-        Console.WriteLine("--- Аналіз інвентарю ---");
-
-        foreach (var item in inventory)
+        for (int i = 1; i <= 5; i++)
         {
-            item.Identify();
+            var t = i;
+            actions.Add(() => Console.WriteLine(t));
         }
 
-        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
-        Console.ReadKey();
+        foreach (var action in actions)
+        {
+            action();
+        }
     }
 }
